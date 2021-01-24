@@ -107,6 +107,14 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
           )
         }
       }
+      // declare module 'foo'
+      if (ts.isModuleDeclaration(node) && ts.isStringLiteral(node.name)) {
+        const importPath = node.name.text;
+        const replacedPath = replaceAliases(importPath, factory);
+        if (replacedPath) {
+          return factory.updateModuleDeclaration(node, node.decorators, node.modifiers, replacedPath, node.body);
+        }
+      }
       return ts.visitEachChild(node, visitor, context)
     }
 
