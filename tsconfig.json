@@ -1,11 +1,9 @@
 {
+  "extends": "@cyansalt/tsconfig/tsconfig.base",
   "compilerOptions": {
+    "noEmit": false,
     "declaration": true,
-    "target": "ES2018",
     "module": "CommonJS",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "strictNullChecks": true,
     "rootDir": "src",
     "outDir": "dist"
   },

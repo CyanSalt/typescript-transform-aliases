@@ -13,6 +13,7 @@
   "author": "CyanSalt",
   "license": "ISC",
   "devDependencies": {
+    "@cyansalt/tsconfig": "^1.1.1",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
