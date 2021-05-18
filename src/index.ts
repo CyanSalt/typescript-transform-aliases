@@ -14,7 +14,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
   function replaceAliases(importPath: string, factory: ts.NodeFactory) {
     let replacedPath = importPath
     for (const replacer of replacers) {
-      replacedPath = importPath.replace(replacer.pattern, replacer.replacement)
+      replacedPath = replacedPath.replace(replacer.pattern, replacer.replacement)
     }
     return replacedPath !== importPath
       ? factory.createStringLiteral(replacedPath)
