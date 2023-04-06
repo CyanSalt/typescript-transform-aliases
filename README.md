@@ -6,7 +6,7 @@ Transform aliases in TypeScript files.
 
 ```sh
 npm i -D typescript-transform-aliases
-// or
+# or
 yarn add -D typescript-transform-aliases
 ```
 
