@@ -1,6 +1,6 @@
 {
   "name": "typescript-transform-aliases",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Transform aliases in TypeScript files.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
