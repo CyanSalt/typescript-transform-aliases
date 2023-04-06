@@ -64,6 +64,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
           return factory.updateImportTypeNode(
             node,
             factory.updateLiteralTypeNode(node.argument, replacedPath),
+            node.assertions,
             node.qualifier,
             node.typeArguments,
             node.isTypeOf,
@@ -81,10 +82,10 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
         if (replacedPath) {
           return factory.updateImportDeclaration(
             node,
-            node.decorators,
             node.modifiers,
             node.importClause,
             replacedPath,
+            node.assertClause,
           )
         }
       }
@@ -99,11 +100,11 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
         if (replacedPath) {
           return factory.updateExportDeclaration(
             node,
-            node.decorators,
             node.modifiers,
             node.isTypeOnly,
             node.exportClause,
             replacedPath,
+            node.assertClause,
           )
         }
       }
@@ -112,7 +113,12 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
         const importPath = node.name.text
         const replacedPath = replaceAliases(importPath, factory)
         if (replacedPath) {
-          return factory.updateModuleDeclaration(node, node.decorators, node.modifiers, replacedPath, node.body)
+          return factory.updateModuleDeclaration(
+            node,
+            node.modifiers,
+            replacedPath,
+            node.body,
+          )
         }
       }
       return ts.visitEachChild(node, visitor, context)
