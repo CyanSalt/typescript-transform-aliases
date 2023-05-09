@@ -1,5 +1,7 @@
 # typescript-transform-aliases
 
+[![npm](https://img.shields.io/npm/v/typescript-transform-aliases.svg)](https://www.npmjs.com/package/typescript-transform-aliases)
+
 Transform aliases in TypeScript files.
 
 ## Install
