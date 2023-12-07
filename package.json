@@ -26,9 +26,9 @@
   "author": "CyanSalt",
   "license": "ISC",
   "devDependencies": {
-    "@cyansalt/tsconfig": "^2.0.0",
-    "@release-it/conventional-changelog": "^5.1.1",
-    "release-it": "^15.10.1",
+    "@cyansalt/tsconfig": "^2.2.1",
+    "@release-it/conventional-changelog": "^8.0.1",
+    "release-it": "^17.0.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
