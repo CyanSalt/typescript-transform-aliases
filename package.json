@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "prepack": "tsc",
+    "lint": "eslint --fix './**/*.{js,ts}'",
     "release": "release-it"
   },
   "repository": {
@@ -26,8 +27,10 @@
   "author": "CyanSalt",
   "license": "ISC",
   "devDependencies": {
+    "@cyansalt/eslint-config": "^4.0.3",
     "@cyansalt/tsconfig": "^2.2.1",
     "@release-it/conventional-changelog": "^8.0.1",
+    "eslint": "^9.3.0",
     "release-it": "^17.0.0",
     "typescript": "^4.9.5"
   },

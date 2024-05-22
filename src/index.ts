@@ -1,7 +1,7 @@
 import ts from 'typescript'
 
 interface TransformAliasesOptions {
-  aliases: Record<string, string>
+  aliases: Record<string, string>,
 }
 
 function transformAliases(program: ts.Program, options: TransformAliasesOptions) {
@@ -37,7 +37,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
               || (ts.isIdentifier(node.expression) && node.expression.text === 'require')
           )
       ) {
-        const importPath = (node.arguments[0] as ts.StringLiteral).text
+        const importPath = (node.arguments[0]).text
         const replacedPath = replaceAliases(importPath, factory)
         if (replacedPath) {
           return factory.updateCallExpression(node, node.expression, node.typeArguments, [replacedPath])
@@ -74,6 +74,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
       // import 'foo'
       if (
         ts.isImportDeclaration(node)
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           && node.moduleSpecifier
           && ts.isStringLiteral(node.moduleSpecifier)
       ) {
