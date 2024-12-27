@@ -64,7 +64,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
           return factory.updateImportTypeNode(
             node,
             factory.updateLiteralTypeNode(node.argument, replacedPath),
-            node.assertions,
+            node.attributes ?? (node.assertions as never),
             node.qualifier,
             node.typeArguments,
             node.isTypeOf,
@@ -86,7 +86,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
             node.modifiers,
             node.importClause,
             replacedPath,
-            node.assertClause,
+            node.attributes ?? node.assertClause,
           )
         }
       }
@@ -105,7 +105,7 @@ function transformAliases(program: ts.Program, options: TransformAliasesOptions)
             node.isTypeOnly,
             node.exportClause,
             replacedPath,
-            node.assertClause,
+            node.attributes ?? node.assertClause,
           )
         }
       }

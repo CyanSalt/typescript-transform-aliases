@@ -7,9 +7,7 @@
     "rootDir": "src",
     "outDir": "dist"
   },
-  "exclude": [
-    "**/dist",
-    "**/node_modules",
-    "**/tests"
+  "include": [
+    "src"
   ]
 }
